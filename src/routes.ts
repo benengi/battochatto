@@ -5,9 +5,9 @@ import { ChatroomComponent } from './app/chatroom/chatroom.component';
 import { PageNotFoundComponent } from './app/error-pages/page-not-found/page-not-found.component';
 
 export const appRoutes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'signup', component: SignupFormComponent },
     { path: 'login', component: LoginFormComponent },
     { path: 'chat', component: ChatroomComponent },
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
