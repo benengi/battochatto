@@ -25,15 +25,15 @@ export class ChatService {
   }
 
   public sendMessage(msg: string) {
-    const timestamp = this.getTimeStamp();
+    const timeStamp = this.getTimeStamp();
     const email = this.user.email;
     this.chatMessages = this.getMessages();
-    this.chatMessages.push({
-      message: msg,
-      timeSent: timestamp,
-      userName: this.userName,
-      email
-    });
+    // this.chatMessages.push({
+    //   message: msg,
+    //   timeSent: timeStamp,
+    //   userName: this.userName,
+    //   email
+    // });
   }
 
   getMessages(): AngularFireList<ChatMessage[]> {
