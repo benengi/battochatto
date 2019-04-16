@@ -1,5 +1,13 @@
 <div class="message-container">
-  <p>{{ userName }}</p>
-  <p>{{ messageContent }}</p>
-  <p>{{ timestamp }}</p>
+  <div class="message-data">
+    <span class="sender">
+      {{ userName }}
+    </span>
+    <span class="timestamp">
+      {{ timeStamp | date:'medium' }}
+    </span>
+  </div>
+  <div class="message-content">
+    {{ messageContent }}
+  </div>
 </div>
