@@ -2,7 +2,7 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: #EAEAEB;
+    background-color: rgb(255, 243, 255);
 }
 
 #logo{
@@ -48,7 +48,13 @@
     transition: ease-in 0.2s;
 }
 
-#user-email {
+#username {
     padding-right: 16px;
     font-weight: bold;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    margin: 0px 50px;
+    font-size: 1.2rem;
 }

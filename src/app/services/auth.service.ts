@@ -24,6 +24,14 @@ export class AuthService {
     return this.user;
   }
 
+  authenticate() {
+    if (this.afAuth.auth.currentUser === null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
@@ -36,6 +44,7 @@ export class AuthService {
   signUpFire(email: string, password: string, displayName: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(user => {
+      user.user.updateProfile({ displayName });
       this.authState = user;
       const status = 'online';
       this.setUserData(email, displayName, status);
