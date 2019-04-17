@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
     this.authService.login(this.email, this.password)
     .then(res => {
       this.authService.setUserStatus(status);
-      this.router.navigate(['/chat'])
+      this.router.navigate(['/chat']);
     })
     .catch(err => this.errorMessage = err.message);
   }
