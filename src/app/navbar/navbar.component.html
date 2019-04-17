@@ -1,3 +1,18 @@
-<p>
-  navbar works!
-</p>
+<div class="nar-bar">
+  <div id="logo"></div>
+  <div id="heading"><a routerLink="/">Batto Chatto</a></div>
+  <div class="links">
+    <span>
+      <a *ngIf="!(user|async)?.uid" href="#" (click)="login()">Login!</a>
+    </span>
+    <span>
+      <a *ngIf="!(user|async)?.uid" routerLink="/signup">Sign Up!</a>
+    </span>
+    <span>
+      <span id="user-email" *ngIf="(user|async)?.uid">Hello, {{ userEmail }}</span>
+    </span>
+    <span>
+      <a *ngIf="(user|async)?.uid" href="#" (click)="logout()">Logout</a>
+    </span>
+  </div>
+</div>

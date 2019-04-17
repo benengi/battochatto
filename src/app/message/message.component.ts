@@ -13,7 +13,7 @@ export class MessageComponent implements OnInit {
   userName: string;
   messageContent: string;
   timeStamp: string;
-  // isOwnMessage: boolean;
+  isOwnMessage: boolean;
 
   constructor(
     private authService: AuthService

@@ -20,6 +20,10 @@ export class AuthService {
     return this.authState !== null ? this.authState.user.uid : '';
   }
 
+  authUser() {
+    return this.user;
+  }
+
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
     .then((resolve) => {
