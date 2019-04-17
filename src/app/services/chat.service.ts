@@ -11,7 +11,7 @@ export class ChatService {
   user: any;
   chatMessages: AngularFireList<ChatMessage[]>;
   chatMessage: ChatMessage;
-  userName: Observable<string>;
+  username: Observable<string>;
 
   constructor(
     private db: AngularFireDatabase,
@@ -31,7 +31,7 @@ export class ChatService {
     // this.chatMessages.push({
     //   message: msg,
     //   timeSent: timeStamp,
-    //   userName: this.userName,
+    //   username: this.username,
     //   email
     // });
   }

@@ -23,7 +23,7 @@ export class MessageComponent implements OnInit {
     this.messageContent = chatMessage.message;
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
-    this.userName = chatMessage.userName;
+    this.userName = chatMessage.username;
   }
 
 }
