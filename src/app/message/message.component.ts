@@ -10,7 +10,7 @@ import { ChatMessage } from '../models/chat-message.model';
 export class MessageComponent implements OnInit {
   @Input() chatMessage: ChatMessage;
   userEmail: string;
-  userName: string;
+  username: string;
   messageContent: string;
   timeStamp: string;
   isOwnMessage: boolean;
@@ -23,7 +23,7 @@ export class MessageComponent implements OnInit {
     this.messageContent = chatMessage.message;
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
-    this.userName = chatMessage.username;
+    this.username = chatMessage.username;
   }
 
 }

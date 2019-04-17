@@ -23,9 +23,7 @@ export class ChatService {
         this.user = auth;
       }
 
-      // this.getUser().subscribe(a => {
-      //   this.username = a.displayName;
-      // });
+      this.getUser();
     });
   }
 
@@ -44,12 +42,12 @@ export class ChatService {
     const timeStamp = this.getTimeStamp();
     const email = this.user.email;
     this.chatMessages = this.getMessages();
-    // this.chatMessages.push({
-    //   message: msg,
-    //   timeSent: timeStamp,
-    //   username: this.username,
-    //   email
-    // });
+    this.chatMessages.push({
+      message: msg,
+      timeSent: timeStamp,
+      username: this.username,
+      email
+    });
   }
 
   getMessages(): AngularFireList<ChatMessage[]> {
