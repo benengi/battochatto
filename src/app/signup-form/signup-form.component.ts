@@ -20,8 +20,12 @@ export class SignupFormComponent {
     const password = this.password;
     const displayName = this.displayName;
     this.authService.signUpFire(email, password, displayName)
-    .then(resolve => this.router.navigate(['chat']))
-    .catch(error => this.errorMessage = error.message);
+    .then(resolve => {
+      this.errorMessage = 'Success!';
+      this.router.navigate(['chat']);
+    })
+    .catch(error => {
+      this.errorMessage = error.message;
+    });
   }
-
 }

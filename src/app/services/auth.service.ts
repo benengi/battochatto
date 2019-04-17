@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   get currentUserId(): string {
-    return this.authState !== null ? this.authState.id : '';
+    return this.authState !== null ? this.authState.user.uid : '';
   }
 
   login(email: string, password: string) {
@@ -31,12 +31,11 @@ export class AuthService {
 
   signUpFire(email: string, password: string, displayName: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    .then((user) => {
+    .then(user => {
       this.authState = user;
       const status = 'online';
       this.setUserData(email, displayName, status);
-    }).catch(err => console.log(err)
-    );
+    });
   }
 
   setUserData(email: string, displayName: string, status: string): void {
@@ -46,9 +45,7 @@ export class AuthService {
       displayName,
       status
     };
-    this.db.object(path).update(data)
-    .catch(err => console.log(err)
-    );
+    this.db.object(path).update(data);
   }
 
   setUserStatus(status: string): void {
