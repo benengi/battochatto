@@ -3,16 +3,16 @@
   <div id="heading"><a routerLink="/">Batto Chatto</a></div>
   <div class="links">
     <span>
-      <a *ngIf="!(user|async)?.uid" href="#" (click)="login()">Login!</a>
+      <a *ngIf="!(user|async)?.uid" (click)="login()">Login!</a>
     </span>
     <span>
       <a *ngIf="!(user|async)?.uid" routerLink="/signup">Sign Up!</a>
     </span>
     <span>
-      <span id="user-email" *ngIf="(user|async)?.uid">Hello, {{ userEmail }}</span>
+      <span id="user-email" *ngIf="(user|async)?.uid">Hello, {{ displayName }}</span>
     </span>
     <span>
-      <a *ngIf="(user|async)?.uid" href="#" (click)="logout()">Logout</a>
+      <a *ngIf="(user|async)?.uid" (click)="logout()">Logout</a>
     </span>
   </div>
 </div>

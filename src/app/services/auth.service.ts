@@ -25,12 +25,12 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    .then((resolve) => {
-      const status = 'online';
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+  }
 
-      this.router.navigate(['/chat']);
-    });
+  logout() {
+    this.afAuth.auth.signOut();
+    this.router.navigate(['/']);
   }
 
   signUpFire(email: string, password: string, displayName: string) {
