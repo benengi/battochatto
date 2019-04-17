@@ -37,6 +37,8 @@ export class AuthService {
   }
 
   logout() {
+    const status = 'offline';
+    this.setUserStatus(status);
     this.afAuth.auth.signOut();
     this.router.navigate(['/']);
   }
@@ -51,7 +53,7 @@ export class AuthService {
     });
   }
 
-  setUserData(email: string, displayName: string, status: string): void {
+  setUserData(email: string, displayName: string, status: string) {
     const path = `users/${this.currentUserId}`;
     const data = {
       email,

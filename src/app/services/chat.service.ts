@@ -39,15 +39,16 @@ export class ChatService {
   }
 
   public sendMessage(msg: string) {
+    // TODO make the message db into ARRAY
     const timeStamp = this.getTimeStamp();
     const email = this.user.email;
     this.chatMessages = this.getMessages();
-    // this.chatMessages.push({
-    //   message: msg,
-    //   timeSent: timeStamp,
-    //   username: this.username,
-    //   email
-    // });
+    this.db.list('messages').update('messages', {
+      message: msg,
+      timeSent: timeStamp,
+      username: this.username,
+      email
+    });
   }
 
   getMessages(): AngularFireList<ChatMessage[]> {
