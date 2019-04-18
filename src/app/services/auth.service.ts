@@ -17,6 +17,8 @@ export class AuthService {
   }
 
   get currentUserId(): string {
+    console.log(this.authState);
+
     return this.authState !== null ? this.authState.user.uid : '';
   }
 
@@ -25,26 +27,34 @@ export class AuthService {
   }
 
   authenticate() {
-    if (this.afAuth.auth.currentUser === null) {
-      return false;
-    } else {
-      return true;
-    }
+    return this.afAuth.auth.currentUser;
   }
 
   login(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
+    .then(user => {
+      this.authState = user;
+    });
   }
 
   logout() {
+    const uid = this.authenticate().uid;
     const status = 'offline';
-    this.setUserStatus(status);
-    this.afAuth.auth.signOut();
-    this.router.navigate(['/']);
+    this.setStatus(uid, status);
+    this.afAuth.auth.signOut()
+    .then(() => this.router.navigate(['/']));
   }
 
-  signUpFire(email: string, password: string, displayName: string) {
-    return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+  setStatus(uid: string, status: string) {
+    const path = 'users/' + uid;
+    const data = {
+      status
+    };
+    this.db.object(path).update(data);
+  }
+
+  async signUpFire(email: string, password: string, displayName: string) {
+    return await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(user => {
       user.user.updateProfile({ displayName });
       this.authState = user;

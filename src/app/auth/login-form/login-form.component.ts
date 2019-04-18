@@ -22,8 +22,14 @@ export class LoginFormComponent implements OnInit {
     .then(res => {
       const status = 'online';
       this.authService.setUserStatus(status);
-      this.router.navigate(['/chat']);
     })
+    .then(() => this.router.navigate(['/chat']))
     .catch(err => this.errorMessage = err.message);
+  }
+
+  handleSubmit(event) {
+    if (event.keyCode === 13) {
+      this.login();
+    }
   }
 }
