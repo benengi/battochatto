@@ -1,9 +1,9 @@
 .container {
-  height: 100%;
+  height: 90vh;
   overflow: hidden;
   background:
     linear-gradient(45deg, rgba(255, 103, 0, 0.3), rgba(0, 0, 80, 0.9)),
-    url('../../../assets/img/bat-512.png') center center repeat;
+    url('https://upload.wikimedia.org/wikipedia/commons/d/d6/Bats_flying_%289413217529%29.jpg') center center repeat-x;
   ;
 }
 
@@ -12,8 +12,7 @@
   border: 1px solid #000;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.85);
-  width: 700px;
-  height: 420px;
+  width: 40vw;
   margin: auto;
   margin-top: 40px;
   text-align: center;

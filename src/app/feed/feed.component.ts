@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ChatService } from '../services/chat.service';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.css']
 })
-export class FeedComponent implements OnInit, OnDestroy {
+export class FeedComponent implements OnInit {
   feed: any;
 
   constructor(private chatService: ChatService) {
@@ -16,9 +16,5 @@ export class FeedComponent implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-  }
-
-  ngOnDestroy() {
-    this.chatService.getMessages().valueChanges().unsubscribe();
   }
 }

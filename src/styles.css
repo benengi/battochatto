@@ -4,8 +4,8 @@
 
 body {
     width: 100%;
-    min-height: 100%;
-    background: aliceblue;
+    height: 100%;
+    background: rgb(188, 207, 223);
     background-attachment: fixed;
     background-size: cover;
     font-family: "Open Sans", sans-serif;

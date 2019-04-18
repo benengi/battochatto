@@ -1,5 +1,5 @@
 .main-content {
-  height: 60vh;
+  height: 80vh;
   display: flex;
 }
 
@@ -30,7 +30,17 @@
 
 .chat-form-wrapper {
   display: flex;
-  height: 50px;
+  height: 5vh;
   background-color: #eee;
   z-index: 3;
+}
+
+.chat-bottom-margin {
+  height: 5vh;
+  background-color: black;
+  color: aliceblue;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  padding: 2vh;
+  font-size: 1.3rem;
 }

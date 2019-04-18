@@ -80,4 +80,8 @@ export class ChatService {
 
     return now + ' ' + time;
   }
+
+  welcome(): string {
+    return 'Support Batto Chatto on Patreon!';
+  }
 }
