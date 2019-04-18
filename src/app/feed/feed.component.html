@@ -1,5 +1,4 @@
 <div class="feed">
-  <div *ngFor="let message of feed" class="message">
-    <app-message [chatMessage]=message ></app-message>
-  </div>
+  <app-message [chatMessage]=message *ngFor="let message of feed">
+  </app-message>
 </div>

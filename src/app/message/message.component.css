@@ -7,6 +7,7 @@
   align-items: stretch;
   background-color: #eee;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin: 10px;
 }
 
 .is-own-message-container {
@@ -41,6 +42,7 @@
 .message-content {
   height: auto;
   flex: 9;
+  color: #222;
   background-color: white;
   padding: 10px;
   border-top-right-radius: 5px;

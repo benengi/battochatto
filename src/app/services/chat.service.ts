@@ -10,7 +10,7 @@ import { ChatMessage } from '../models/chat-message.model';
 })
 export class ChatService {
   user: firebase.User;
-  chatMessages: AngularFireList<ChatMessage[]>;
+  chatMessages: any;
   chatMessage: ChatMessage;
   username: Observable<string>;
 
@@ -38,33 +38,35 @@ export class ChatService {
     return this.db.list(path);
   }
 
-  public sendMessage(msg: string) {
+  public sendMessage(message: string) {
     // TODO make the message db into ARRAY
-    const timeStamp = this.getTimeStamp();
+    const timeSent = this.getTimeStamp();
     const email = this.user.email;
+    const username = this.afAuth.auth.currentUser.displayName;
     this.chatMessages = this.getMessages();
 
-    this.db.list('/messages').set('today', {});
-
-    this.db.list('/messages').valueChanges()
-    .subscribe(u => {
-      console.log(u);
-
+    this.db.database.ref('/chats/').push({
+        timeSent,
+        email,
+        message,
+        username
     });
-    // .push({
-    //   message: msg,
-    //   timeSent: timeStamp,
-    //   username: this.username,
-    //   email
+
+    // this.db.list('/chats').valueChanges()
+    // .subscribe(u => {
+    //   console.log(u);
+
     // });
   }
 
   getMessages(): any {
     // query to create message feed binding
-    this.db.list('/messages').valueChanges()
-    .subscribe(v => {
-      return v;
-    });
+    const path = '/chats';
+    return this.db.list(path);
+    // .valueChanges()
+    // .subscribe(v => {
+    //   return v;
+    // });
   }
 
   getTimeStamp() {
