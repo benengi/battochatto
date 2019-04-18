@@ -43,19 +43,28 @@ export class ChatService {
     const timeStamp = this.getTimeStamp();
     const email = this.user.email;
     this.chatMessages = this.getMessages();
-    this.db.list('messages').update('messages', {
-      message: msg,
-      timeSent: timeStamp,
-      username: this.username,
-      email
+
+    this.db.list('/messages').set('today', {});
+
+    this.db.list('/messages').valueChanges()
+    .subscribe(u => {
+      console.log(u);
+
     });
+    // .push({
+    //   message: msg,
+    //   timeSent: timeStamp,
+    //   username: this.username,
+    //   email
+    // });
   }
 
-  getMessages(): AngularFireList<ChatMessage[]> {
+  getMessages(): any {
     // query to create message feed binding
-    return this.db.list('messages', ref =>
-    ref.limitToLast(25).orderByKey()
-        );
+    this.db.list('/messages').valueChanges()
+    .subscribe(v => {
+      return v;
+    });
   }
 
   getTimeStamp() {
