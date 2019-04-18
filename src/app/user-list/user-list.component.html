@@ -1,5 +1,5 @@
-<div class="feed">
-  <div *ngFor="let usr of users" class="message">
-    <app-message [chatMessage]=message ></app-message>
-  </div>
+<div class="user-list">
+  <app-user-item
+  [user]=user *ngFor="let user of users">
+  </app-user-item>
 </div>
