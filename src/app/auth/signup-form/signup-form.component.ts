@@ -13,19 +13,24 @@ export class SignupFormComponent {
   displayName: string;
   errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   signUp() {
     const email = this.email;
     const password = this.password;
     const displayName = this.displayName;
-    this.authService.signUpFire(email, password, displayName)
-    .then(resolve => {
-      this.errorMessage = 'Success!';
-      this.router.navigate(['/chat']);
-    })
-    .catch(error => {
-      this.errorMessage = error.message;
-    });
+    if (displayName.toLowerCase() === 'billy') {
+      this.errorMessage = 'THERE CAN ONLY BE ONE';
+    } else {
+      this.errorMessage = '';
+      // this.authService.signUpFire(email, password, displayName)
+      // .then(resolve => {
+      //   this.errorMessage = 'Success!';
+      //   this.router.navigate(['/chat']);
+      // })
+      // .catch(error => {
+      //   this.errorMessage = error.message;
+      // });
+    }
   }
 }
