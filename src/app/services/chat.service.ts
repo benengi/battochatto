@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
@@ -8,12 +8,13 @@ import { ChatMessage } from '../models/chat-message.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService {
+export class ChatService implements OnInit {
   user: firebase.User;
   chatMessages: any;
   chatMessage: ChatMessage;
   username: Observable<string>;
   pigLatin = false;
+  nightMode = false;
 
   constructor(
     private db: AngularFireDatabase,
@@ -28,6 +29,10 @@ export class ChatService {
     });
   }
 
+  ngOnInit() {
+    this.pigName();
+  }
+
   getUser() {
     const userId = this.user.uid;
     const path = `/users/${userId}`;
@@ -40,8 +45,44 @@ export class ChatService {
   }
 
   public sendMessage(message: string) {
+    const timeSent = this.getTimeStamp();
+    const email = this.user.email;
+    const username = this.afAuth.auth.currentUser.displayName;
+
+    if (message.match('^authlvl2 clear chat$')) {
+      this.clearChat(timeSent);
+    } else {
     // Shhh, it's a secret
-    if (this.pigLatin) {
+    this.pigName();
+    message = this.pigLatinEnable(message);
+
+    this.db.database.ref('/chats').push({
+      timeSent,
+      email,
+      message,
+      username
+    });
+  }
+  }
+
+  private clearChat(timeSent) {
+    this.db.database.ref('/chats').set({
+      '-0system': {
+      timeSent,
+      email: 'battobot@bchat.com',
+      message: 'Chat log has been cleared.',
+      username: 'system'
+    }});
+  }
+
+  private pigName() {
+    if (this.user.displayName.toLowerCase().match('pig')) {
+      this.pigLatin = true;
+    }
+  }
+
+  private pigLatinEnable(message: string) {
+    if (this.user.displayName.toLowerCase().match('pig')) {
       const newMessage = message.split(' ');
       for (let i = 0; i < newMessage.length; i++) {
         if (newMessage[i].length > 2) {
@@ -59,48 +100,25 @@ export class ChatService {
       }
       message = newMessage.join(' ');
     }
-
-    const timeSent = this.getTimeStamp();
-    const email = this.user.email;
-    const username = this.afAuth.auth.currentUser.displayName;
-    this.chatMessages = this.getMessages();
-
-    this.db.database.ref('/chats/').push({
-      timeSent,
-      email,
-      message,
-      username
-    });
-
-    // this.db.list('/chats').valueChanges()
-    // .subscribe(u => {
-    //   console.log(u);
-
-    // });
+    return message;
   }
 
   getMessages(): any {
     // query to create message feed binding
     const path = '/chats';
     return this.db.list(path);
-    // .valueChanges()
-    // .subscribe(v => {
-    //   return v;
-    // });
   }
 
   getTimeStamp() {
     const now = new Date();
-    const date =
-      now.getUTCFullYear() +
-      '/' +
-      (now.getUTCMonth() + 1) +
-      '/' +
-      now.getUTCDate();
-    const time =
-      now.getUTCHours() + ':' + now.getUTCMinutes() + ':' + now.getUTCSeconds();
-
-    return now + ' ' + time;
+    const stamp =
+      (now.getUTCMonth() + 1) + '/'
+      + now.getUTCDate() + '/'
+      + now.getUTCFullYear() + ' '
+      + now.getHours() + ':'
+      + now.getMinutes() + ':'
+      + now.getSeconds();
+    return stamp + '';
   }
 
   welcome(): string {

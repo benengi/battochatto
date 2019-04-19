@@ -2,7 +2,7 @@
   <div class="user-list-wrapper" [ngClass]="{'pig-mode-bkg':pigMode}">
     <app-user-list></app-user-list>
   </div>
-  <div #scroller class="feed-wrapper">
+  <div #scroller class="feed-wrapper" [ngClass]="{'night-mode':nightMode}">
     <app-feed></app-feed>
   </div>
 </div>
@@ -17,7 +17,7 @@
     Settings
   </span>
   <span *ngIf="settings" class="secret-bar btn" [ngClass]="{'pig-mode':pigMode}">
-    <span class="setting">
+    <span class="setting" (click)="toggleNightMode()">
       Night Mode
     </span>
     <span class="setting">

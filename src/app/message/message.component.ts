@@ -15,6 +15,7 @@ export class MessageComponent implements OnInit {
   timeStamp: string;
   isOwnMessage: boolean;
   ownEmail: string;
+  nightMode = false;
 
   constructor(private authService: AuthService) {
       authService.authUser().subscribe(user => {
