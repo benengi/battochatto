@@ -13,6 +13,7 @@ export class ChatService {
   chatMessages: any;
   chatMessage: ChatMessage;
   username: Observable<string>;
+  pigLatin = false;
 
   constructor(
     private db: AngularFireDatabase,
@@ -39,17 +40,37 @@ export class ChatService {
   }
 
   public sendMessage(message: string) {
-    // TODO make the message db into ARRAY
+    // Shhh, it's a secret
+    if (this.pigLatin) {
+      let newMessage = message.concat('fuck');
+      console.log(newMessage);
+
+      for (let i = 0; i < message.length - 1; i++) {
+        console.log(i);
+
+        if (message[i].substr(0).match('^[aeiou]')) {
+          message[i].concat('ay');
+        } else if (!message[i].substring(0).match('^[aeiou]')) {
+          const firstCon = message[i].substr(0).slice();
+          message[i].concat(firstCon);
+        }
+      }
+      message.toString();
+
+      console.log(message);
+
+    }
+
     const timeSent = this.getTimeStamp();
     const email = this.user.email;
     const username = this.afAuth.auth.currentUser.displayName;
     this.chatMessages = this.getMessages();
 
     this.db.database.ref('/chats/').push({
-        timeSent,
-        email,
-        message,
-        username
+      timeSent,
+      email,
+      message,
+      username
     });
 
     // this.db.list('/chats').valueChanges()
@@ -71,12 +92,14 @@ export class ChatService {
 
   getTimeStamp() {
     const now = new Date();
-    const date = now.getUTCFullYear() + '/' +
-    (now.getUTCMonth() + 1) + '/' +
-    now.getUTCDate();
-    const time = now.getUTCHours() + ':' +
-    now.getUTCMinutes() + ':' +
-    now.getUTCSeconds();
+    const date =
+      now.getUTCFullYear() +
+      '/' +
+      (now.getUTCMonth() + 1) +
+      '/' +
+      now.getUTCDate();
+    const time =
+      now.getUTCHours() + ':' + now.getUTCMinutes() + ':' + now.getUTCSeconds();
 
     return now + ' ' + time;
   }

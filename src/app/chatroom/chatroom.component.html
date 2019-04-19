@@ -1,5 +1,5 @@
 <div class="main-content">
-  <div class="user-list-wrapper">
+  <div class="user-list-wrapper" [ngClass]="{'pig-mode-bkg':pigMode}">
     <app-user-list></app-user-list>
   </div>
   <div #scroller class="feed-wrapper">
@@ -10,5 +10,24 @@
   <app-chat-form></app-chat-form>
 </div>
 <div class="chat-bottom-margin">
-  {{ welcomeMessage }}
+  <span class="welcome-message">
+    {{ welcomeMessage }}
+  </span>
+  <span class="welcome-message btn" (click)="toggleSettings()">
+    Settings
+  </span>
+  <span *ngIf="settings" class="secret-bar btn" [ngClass]="{'pig-mode':pigMode}">
+    <span class="setting">
+      Night Mode
+    </span>
+    <span class="setting">
+      Another Setting
+    </span>
+    <span class="setting" (click)="togglePigMode()">
+      PL Mode
+    </span>
+  </span>
+  <span *ngIf="pigMode" class="pig-message">
+    {{ pigMessage }}
+  </span>
 </div>

@@ -36,11 +36,42 @@
 }
 
 .chat-bottom-margin {
+  display: flex;
   height: 5vh;
   background-color: black;
   color: aliceblue;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   text-align: center;
-  padding: 2vh;
   font-size: 1.3rem;
+}
+
+.welcome-message {
+  padding: 1vh 2vw;
+}
+
+.secret-bar {
+  padding: 1vh 2vw;
+  background-color: #2a2845;
+}
+
+.pig-message {
+  padding: 1vh 2vw;
+  color: palevioletred;
+}
+
+.setting {
+  cursor: pointer;
+  padding: 0 2vw;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.pig-mode-bkg {
+  background: linear-gradient(rgba(216, 112, 207, 0.527), rgba(238, 73, 73, 0.308)), url('../../assets/img/piggo.jpg') center center no-repeat;
+}
+
+.pig-mode {
+  background: palevioletred;
 }
