@@ -42,23 +42,22 @@ export class ChatService {
   public sendMessage(message: string) {
     // Shhh, it's a secret
     if (this.pigLatin) {
-      let newMessage = message.concat('fuck');
-      console.log(newMessage);
-
-      for (let i = 0; i < message.length - 1; i++) {
-        console.log(i);
-
-        if (message[i].substr(0).match('^[aeiou]')) {
-          message[i].concat('ay');
-        } else if (!message[i].substring(0).match('^[aeiou]')) {
-          const firstCon = message[i].substr(0).slice();
-          message[i].concat(firstCon);
+      const newMessage = message.split(' ');
+      for (let i = 0; i < newMessage.length; i++) {
+        if (newMessage[i].length > 2) {
+          if (newMessage[i].substr(0).match('^[aeiou]')) {
+            newMessage[i] = newMessage[i].concat('ay');
+          } else if (!newMessage[i].substring(0).match('^[aeiou]')) {
+            const firstCon = newMessage[i].charAt(0);
+            newMessage[i] = newMessage[i].slice(1, newMessage[i].length);
+            newMessage[i] = newMessage[i].concat(firstCon);
+          }
         }
       }
-      message.toString();
-
-      console.log(message);
-
+      for (let i = 0; i < newMessage.length; i++) {
+        newMessage[i] += 'ay';
+      }
+      message = newMessage.join(' ');
     }
 
     const timeSent = this.getTimeStamp();

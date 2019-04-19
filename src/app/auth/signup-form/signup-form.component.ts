@@ -23,14 +23,14 @@ export class SignupFormComponent {
       this.errorMessage = 'THERE CAN ONLY BE ONE';
     } else {
       this.errorMessage = '';
-      // this.authService.signUpFire(email, password, displayName)
-      // .then(resolve => {
-      //   this.errorMessage = 'Success!';
-      //   this.router.navigate(['/chat']);
-      // })
-      // .catch(error => {
-      //   this.errorMessage = error.message;
-      // });
+      this.authService.signUpFire(email, password, displayName)
+      .then(resolve => {
+        this.errorMessage = 'Success!';
+        this.router.navigate(['/chat']);
+      })
+      .catch(error => {
+        this.errorMessage = error.message;
+      });
     }
   }
 }
