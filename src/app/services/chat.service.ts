@@ -30,7 +30,6 @@ export class ChatService implements OnInit {
   }
 
   ngOnInit() {
-    this.pigName();
   }
 
   getUser() {
@@ -53,7 +52,6 @@ export class ChatService implements OnInit {
       this.clearChat(timeSent);
     } else {
     // Shhh, it's a secret
-    this.pigName();
     message = this.pigLatinEnable(message);
 
     this.db.database.ref('/chats').push({
@@ -75,14 +73,8 @@ export class ChatService implements OnInit {
     }});
   }
 
-  private pigName() {
-    if (this.user.displayName.toLowerCase().match('pig')) {
-      this.pigLatin = true;
-    }
-  }
-
   private pigLatinEnable(message: string) {
-    if (this.user.displayName.toLowerCase().match('pig')) {
+    if (this.pigLatin) {
       const newMessage = message.split(' ');
       for (let i = 0; i < newMessage.length; i++) {
         if (newMessage[i].length > 2) {

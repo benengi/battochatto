@@ -26,9 +26,6 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-    if (this.chatService.user.displayName.toLowerCase().match('pig')) {
-      this.pigMode = true;
-    }
   }
 
   ngAfterViewChecked() {
