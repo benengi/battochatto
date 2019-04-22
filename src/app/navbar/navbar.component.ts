@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   displayName: string;
+  versionNumber = 'V0.8.0';
 
   constructor(private authService: AuthService, private router: Router) { }
 
