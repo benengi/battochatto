@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login-form',
@@ -12,24 +12,45 @@ export class LoginFormComponent implements OnInit {
   password: string;
   errorMessage: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  login() {
-    this.authService.login(this.email, this.password)
-    .then(res => {
-      const status = 'online';
-      this.authService.setUserStatus(status);
-    })
-    .then(() => this.router.navigate(['/chat']))
-    .catch(err => this.errorMessage = err.message);
+  login(valid: boolean) {
+    if (valid) {
+      this.authService
+        .login(this.email, this.password)
+        .then(res => {
+          const status = 'online';
+          this.authService.setUserStatus(status);
+        })
+        .then(() => this.router.navigate(['/chat']))
+        .catch(err => (this.errorMessage = err.message));
+    } else {
+      this.errorMessage = 'Fatal error';
+    }
   }
 
   handleSubmit(event) {
     if (event.keyCode === 13) {
-      this.login();
+      this.validate();
+    }
+  }
+
+  validate() {
+    const validEmail = !!this.email.match('[^@]+@[^.]+..+');
+    const validPassword = !!this.password.match('.{6,}');
+    let valid = false;
+
+    if (!validEmail) {
+      this.errorMessage = 'Invalid email format';
+      return;
+    } else if (!validPassword) {
+      this.errorMessage = 'Password must be at least 6 characters';
+      return;
+    } else {
+      valid = validEmail && validPassword;
+      this.login(valid);
     }
   }
 }

@@ -69,3 +69,13 @@ a {
 .label {
   font-size: 0.9em;
 }
+
+.errors {
+  text-align: center;
+  background-color: rgba(240, 248, 255, 0.295);
+  border-radius: 4px;
+  color: rgb(27, 2, 2);
+  margin: 5vh auto;
+  font-size: 1.8rem;
+  width: 40vw;
+}
