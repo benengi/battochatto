@@ -11,7 +11,9 @@
 </div>
 <div class="chat-bottom-margin">
   <span class="welcome-message">
-    {{ welcomeMessage }}
+    <a class="btn" routerLink="/patch_notes">
+      {{ welcomeMessage }}
+    </a>
   </span>
   <span class="welcome-message btn" (click)="toggleSettings()">
     Settings
@@ -21,9 +23,12 @@
       Night Mode
     </span>
     <span class="setting">
-      Another Setting
+      -Unused Setting-
     </span>
-    <span class="setting" (click)="togglePigMode()">
+    <span class="setting">
+      -Unused Setting-
+    </span>
+    <span *ngIf="pigSecret" class="setting" (click)="togglePigMode()">
       PL Mode
     </span>
   </span>

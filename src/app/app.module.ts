@@ -20,6 +20,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
+import { PatchNotesComponent } from './dev-messages/patch-notes/patch-notes.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { environment } from '../environments/environment';
     NavbarComponent,
     UserListComponent,
     UserItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PatchNotesComponent
   ],
   imports: [
     BrowserModule,

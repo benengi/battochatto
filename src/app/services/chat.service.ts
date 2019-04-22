@@ -14,6 +14,7 @@ export class ChatService implements OnInit {
   chatMessage: ChatMessage;
   username: Observable<string>;
   pigLatin = false;
+  secretPig = false;
   nightMode = false;
 
   constructor(
@@ -50,6 +51,10 @@ export class ChatService implements OnInit {
 
     if (message.match('^authlvl2 clear chat$')) {
       this.clearChat(timeSent);
+      return;
+    } else if (message.match('^I love pigs$')) {
+      this.secretPig = true;
+      return;
     } else {
     // Shhh, it's a secret
     message = this.pigLatinEnable(message);
@@ -114,6 +119,10 @@ export class ChatService implements OnInit {
   }
 
   welcome(): string {
-    return 'Support Batto Chatto on Patreon!';
+    return 'V0.8 - What\'s new?';
+  }
+
+  public checkSecretPig() {
+    return this.secretPig;
   }
 }

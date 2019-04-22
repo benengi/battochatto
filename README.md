@@ -1,5 +1,7 @@
 # NgChatApp
 
+This app is deployed using Github at https://billycoda.github.io/ng-chat-app/.
+
 A chat application using Firebase and Angular 7
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
@@ -15,6 +17,12 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Building for deployment
+
+Run `ng build --prod --output-path docs --base-href /ng-chat-app/` to build the project for GitHub Pages deployment or redeployment. In the created 'docs' folder copy the index.html file and rename the copy to 404.html
+
+Push to changes to repo as normal.
 
 ## Running unit tests
 

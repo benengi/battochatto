@@ -17,6 +17,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   @ViewChild('scroller') private feedContainer: ElementRef;
   welcomeMessage: string;
   pigMode = false;
+  pigSecret = false;
   nightMode = false;
   settings = false;
   pigMessage = 'pig mode enabled';
@@ -47,6 +48,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   }
 
   toggleSettings() {
+    this.pigSecret = this.chatService.checkSecretPig();
     this.settings = !this.settings;
   }
 }
