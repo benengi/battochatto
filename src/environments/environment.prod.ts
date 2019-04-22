@@ -7,5 +7,6 @@ export const environment = {
     projectId: 'battochatto',
     storageBucket: 'battochatto.appspot.com',
     messagingSenderId: '415735225038'
-  }
+  },
+  appVersion: require('../../../package.json').version
 };

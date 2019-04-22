@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   user: Observable<firebase.User>;
   displayName: string;
-  versionNumber = 'V0.8.0';
+  versionNumber = environment.appVersion;
 
   constructor(private authService: AuthService, private router: Router) { }
 
