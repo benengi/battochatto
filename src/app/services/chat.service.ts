@@ -32,8 +32,7 @@ export class ChatService implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getUser() {
     const userId = this.user.uid;
@@ -50,6 +49,9 @@ export class ChatService implements OnInit {
     const email = this.user.email;
     const username = this.afAuth.auth.currentUser.displayName;
 
+    if (this.secretPig) {
+      message = this.pigLatinEnable(message);
+    }
     this.db.database.ref('/chats').push({
       timeSent,
       email,
@@ -73,48 +75,50 @@ export class ChatService implements OnInit {
   public clearChat(timeSent) {
     this.db.database.ref('/chats').set({
       '-0system': {
-      timeSent,
-      email: 'battobot@bchat.com',
-      message: 'Chat log has been cleared.',
-      username: 'Batto Bot'
-    }});
+        timeSent,
+        email: 'battobot@bchat.com',
+        message: 'Chat log has been cleared.',
+        username: 'Batto Bot'
+      }
+    });
   }
 
   public clearFeedback(timeSent) {
     this.db.database.ref('/feedback').set({
       '-0system': {
-      timeSent,
-      email: 'battobot@bchat.com',
-      message: 'Feedback log has been cleared.',
-      username: 'Batto Bot'
-    }});
+        timeSent,
+        email: 'battobot@bchat.com',
+        message: 'Feedback log has been cleared.',
+        username: 'Batto Bot'
+      }
+    });
   }
 
-  public cbotChat(message: number, dir: any, timeSent: string) {
+  public cbotChat(caseNum: number, dir: any, timeSent: string) {
     let response: string;
     const email = this.user.email;
     const username = this.afAuth.auth.currentUser.displayName;
 
-    switch (message) {
+    switch (caseNum) {
       case 1:
-      if (dir < 12 && dir >= 0) {
-        response = 'Good morning, ' + username;
-      } else if (dir >= 12 && dir <= 18) {
-        response = 'Good afternoon, ' + username;
-      } else if (dir > 18 && dir <= 23) {
-        response = 'Good evening, ' + username;
-      } else {
-        response = 'Hello, ' + username;
-      }
-      break;
+        if (dir < 12 && dir >= 0) {
+          response = 'Good morning, ' + username;
+        } else if (dir >= 12 && dir <= 18) {
+          response = 'Good afternoon, ' + username;
+        } else if (dir > 18 && dir <= 23) {
+          response = 'Good evening, ' + username;
+        } else {
+          response = 'Hello, ' + username;
+        }
+        break;
       case 2:
-      response = 'Sum: ' + dir + '';
-      break;
+        response = 'Sum: ' + dir + '';
+        break;
       case 3:
-      response = 'Thank you for your feedback!';
-      break;
+        response = 'Feedback recieved!';
+        break;
       default:
-      response = 'Chatto Bot error';
+        response = 'Chatto Bot error';
     }
     this.db.database.ref('/chats').push({
       timeSent,
@@ -134,24 +138,22 @@ export class ChatService implements OnInit {
   }
 
   private pigLatinEnable(message: string) {
-    if (this.pigLatin) {
-      const newMessage = message.split(' ');
-      for (let i = 0; i < newMessage.length; i++) {
-        if (newMessage[i].length > 2) {
-          if (newMessage[i].substr(0).match('^[aeiou]')) {
-            newMessage[i] = newMessage[i].concat('ay');
-          } else if (!newMessage[i].substring(0).match('^[aeiou]')) {
-            const firstCon = newMessage[i].charAt(0);
-            newMessage[i] = newMessage[i].slice(1, newMessage[i].length);
-            newMessage[i] = newMessage[i].concat(firstCon);
-          }
+    const newMessage = message.split(' ');
+    for (let i = 0; i < newMessage.length; i++) {
+      if (newMessage[i].length > 2) {
+        if (newMessage[i].substr(0).match('^[aeiou]')) {
+          newMessage[i] = newMessage[i].concat('ay');
+        } else if (!newMessage[i].substring(0).match('^[aeiou]')) {
+          const firstCon = newMessage[i].charAt(0);
+          newMessage[i] = newMessage[i].slice(1, newMessage[i].length);
+          newMessage[i] = newMessage[i].concat(firstCon);
         }
       }
-      for (let i = 0; i < newMessage.length; i++) {
-        newMessage[i] += 'ay';
-      }
-      message = newMessage.join(' ');
     }
+    for (let i = 0; i < newMessage.length; i++) {
+      newMessage[i] += 'ay';
+    }
+    message = newMessage.join(' ');
     return message;
   }
 

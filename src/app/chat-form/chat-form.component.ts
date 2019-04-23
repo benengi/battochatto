@@ -59,18 +59,22 @@ export class ChatFormComponent implements OnInit {
       this.chatService.clearChat(timeStamp);
       this.message = 'Success!';
       return;
-    } else if (!!message.match('^!secret biggopiggo$')) {
+    } else if (!!message.match('^!bbot util cf$')) {
+      this.chatService.clearFeedback(timeStamp);
+      this.message = 'Success!';
+      return;
+    } else if (!!message.match('^!secret biggopiggo')) {
       this.chatService.secretPig = true;
       this.message = 'Pig mode unlocked!';
       return;
     } else if (!!message.match('^!cb')) {
-      if (!!message.match('[Hh][ae]llo') || !!message.match('[Hh][ie]y?')) {
+      if (!!message.match('^!cb [Hh][ae]llo') || !!message.match('^!cb [Hh][ie]y?')) {
         dir = this.getTimeOfDay();
         this.chatService.sendMessage(message, timeStamp);
         this.chatService.cbotChat(1,  dir, timeStamp);
         this.message = '';
         return;
-      } else if (!!message.match('add')) {
+      } else if (!!message.match('^!cb add')) {
         const msgArr = message.split(' ');
         const num1 = msgArr[2];
         const num2 = msgArr[3];
@@ -78,6 +82,12 @@ export class ChatFormComponent implements OnInit {
         this.chatService.sendMessage(message, timeStamp);
         this.chatService.cbotChat(2, dir, timeStamp);
         this.message = '';
+      } else if (!!message.match('^!cb [Ff]eedback')) {
+        dir = '';
+        this.chatService.sendFeedback(message, timeStamp);
+        this.chatService.cbotChat(3, dir, timeStamp);
+        this.message = 'Thank you for your feedback!';
+        return;
       } // Add new chat bot responses here
     } else {
       this.chatService.sendMessage(message, timeStamp);
