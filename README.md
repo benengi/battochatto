@@ -20,7 +20,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Building for deployment
 
-Run `ng build --prod --output-path docs --base-href /ng-chat-app/` to build the project for GitHub Pages deployment or redeployment. In the created 'docs' folder copy the index.html file and rename the copy to 404.html
+Run `ng build --prod --output-path docs --base-href /battochatto/` to build the project for GitHub Pages deployment or redeployment. In the created 'docs' folder copy the index.html file and rename the copy to 404.html
 
 Push to changes to repo as normal.
 
