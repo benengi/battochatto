@@ -6,7 +6,6 @@ import {
   AfterViewChecked
 } from '@angular/core';
 import { ChatService } from '../services/chat.service';
-import { MessageComponent } from '../message/message.component';
 
 @Component({
   selector: 'app-chatroom',

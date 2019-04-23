@@ -4,6 +4,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs';
 import { ChatMessage } from '../models/chat-message.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class ChatService implements OnInit {
   pigLatin = false;
   secretPig = false;
   nightMode = false;
+  versionNumber = environment.appVersion;
 
   constructor(
     private db: AngularFireDatabase,
@@ -119,7 +121,7 @@ export class ChatService implements OnInit {
   }
 
   welcome(): string {
-    return 'V0.8 - What\'s new?';
+    return 'Ver. ' + this.versionNumber + ' - What\'s new?';
   }
 
   public checkSecretPig() {
