@@ -1,4 +1,3 @@
-
 <div class="message-container" [ngClass]="{'is-own-message-container':isOwnMessage}">
   <div class="message-data">
     <span class="sender" [ngClass]="{'is-own-sender':isOwnMessage}">
@@ -10,5 +9,10 @@
   </div>
   <div class="message-content" [ngClass]="{'is-own-message':isOwnMessage}">
     {{ message }}
+    <div *ngIf="systemMessage" class="system">
+      --
+      <a routerLink="/patch-notes" class="system">Patch Notes</a>
+      --
+    </div>
   </div>
 </div>

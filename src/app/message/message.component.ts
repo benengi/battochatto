@@ -16,6 +16,7 @@ export class MessageComponent implements OnInit {
   isOwnMessage: boolean;
   ownEmail: string;
   nightMode = false;
+  systemMessage: boolean;
 
   constructor(private authService: AuthService) {
       authService.authUser().subscribe(user => {
@@ -29,5 +30,6 @@ export class MessageComponent implements OnInit {
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
     this.username = chatMessage.username;
+    this.systemMessage = (chatMessage.username === 'Batto Bot' && !!chatMessage.message.match('version'));
   }
 }

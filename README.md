@@ -1,6 +1,6 @@
 # NgChatApp
 
-This app is deployed using Github at https://billycoda.github.io/ng-chat-app/.
+This app is deployed using Github at https://billycoda.github.io/battochatto/.
 
 A chat application using Firebase and Angular 7
 

@@ -46,20 +46,9 @@ export class ChatService implements OnInit {
     return this.db.list(path);
   }
 
-  public sendMessage(message: string) {
-    const timeSent = this.getTimeStamp();
+  public sendMessage(message: string, timeSent: string) {
     const email = this.user.email;
     const username = this.afAuth.auth.currentUser.displayName;
-
-    if (message.match('^authlvl2 clear chat$')) {
-      this.clearChat(timeSent);
-      return;
-    } else if (message.match('^I love pigs$')) {
-      this.secretPig = true;
-      return;
-    } else {
-    // Shhh, it's a secret
-    message = this.pigLatinEnable(message);
 
     this.db.database.ref('/chats').push({
       timeSent,
@@ -68,16 +57,40 @@ export class ChatService implements OnInit {
       username
     });
   }
-  }
 
-  private clearChat(timeSent) {
+  public clearChat(timeSent) {
     this.db.database.ref('/chats').set({
       '-0system': {
       timeSent,
       email: 'battobot@bchat.com',
       message: 'Chat log has been cleared.',
-      username: 'system'
+      username: 'Batto Bot'
     }});
+  }
+
+  public cbotChat(message: number, timeSent: string) {
+    let response: string;
+    const email = this.user.email;
+    const username = this.afAuth.auth.currentUser.displayName;
+
+    if (message === 1) {
+      response = 'Hello, ' + username;
+    }
+    this.db.database.ref('/chats').push({
+      timeSent,
+      email: 'battobot@bchat.com',
+      message: response,
+      username: 'Chatto Bot'
+    });
+  }
+
+  public updateNotification(timeSent: string) {
+    this.db.database.ref('/chats').push({
+      timeSent,
+      email: 'battobot@bchat.com',
+      message: 'A new version is available!',
+      username: 'Batto Bot'
+    });
   }
 
   private pigLatinEnable(message: string) {
@@ -106,18 +119,6 @@ export class ChatService implements OnInit {
     // query to create message feed binding
     const path = '/chats';
     return this.db.list(path);
-  }
-
-  getTimeStamp() {
-    const now = new Date();
-    const stamp =
-      (now.getUTCMonth() + 1) + '/'
-      + now.getUTCDate() + '/'
-      + now.getUTCFullYear() + ' '
-      + now.getHours() + ':'
-      + now.getMinutes() + ':'
-      + now.getSeconds();
-    return stamp + '';
   }
 
   welcome(): string {

@@ -53,3 +53,13 @@
   background-color: #e3f2fd;
   color: #1d252b;
 }
+
+.system {
+  color: #454381;
+  text-decoration: none;
+  font-variant: small-caps
+}
+
+.system:hover {
+  color: black;
+}
