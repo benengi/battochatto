@@ -1,33 +1,28 @@
 .message-container {
+  float: right;
   display: flex;
+  flex-direction: row;
   height: auto;
   width: 70%;
-  min-width: 400px;
+  min-width: 10vw;
   border-radius: 5px;
-  align-items: stretch;
+  margin-left: 1vw;
   background-color: rgb(238, 238, 238);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
-  margin: 10px;
-}
-
-.is-own-message-container {
-  background-color: #454381;
 }
 
 .message-data {
+  /* float: right; */
+  min-width: 10%;
+  font-size: 0.8em;
   flex: 1;
   padding: 10px;
-  font-size: 0.7em;
 }
 
 .sender {
   display: block;
-  color: #222;
+  color: rgb(36, 19, 56);
   font-weight: bold;
-}
-
-.is-own-sender {
-  color: #9bdfff;
 }
 
 .timestamp {
@@ -35,31 +30,80 @@
   font-style: italic;
 }
 
-.is-own-timestamp {
-  color: #d5f2ff;
-}
-
 .message-content {
   height: auto;
-  flex: 9;
   color: #222;
+  flex: 9;
   background-color: aliceblue;
-  padding: 10px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.is-own-message {
-  background-color: #e3f2fd;
-  color: #1d252b;
+  font-size: 1.3em;
+  padding: 2vh;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .system {
   color: #454381;
   text-decoration: none;
-  font-variant: small-caps
+  font-variant: small-caps;
+}
+
+.system-bot-container {
+  cursor: crosshair;
+}
+
+.system-bot-msg {
+  font-family: 'Press Start 2P', sans-serif;
+  font-size: 0.8em;
+}
+
+.system-bot-name {
+  color: #7d7aec;
+  font-variant: small-caps;
+}
+
+.system-bot-time {
+  color: #111111;
 }
 
 .system:hover {
   color: black;
+}
+
+.is-own-message-container {
+  display: flex;
+  height: auto;
+  width: 70%;
+  min-width: 400px;
+  border-radius: 5px;
+  align-items: stretch;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: #454381;
+}
+
+.is-own-message-data {
+  flex: 1;
+  padding: 10px;
+  font-size: 0.7em;
+}
+
+.is-own-sender {
+  color: #9bdfff;
+  display: block;
+  font-weight: bold;
+}
+
+.is-own-timestamp {
+  color: #d5f2ff;
+  font-style: italic;
+}
+
+.is-own-message {
+  background-color: #e3f2fd;
+  color: #1d252b;
+  height: auto;
+  flex: 9;
+  font-size: 1em;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }

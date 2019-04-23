@@ -1,18 +1,36 @@
-<div class="message-container" [ngClass]="{'is-own-message-container':isOwnMessage}">
-  <div class="message-data">
-    <span class="sender" [ngClass]="{'is-own-sender':isOwnMessage}">
+<div *ngIf="isOwnMessage" class="is-own-message-container">
+  <div class="is-own-message-data">
+    <span class="is-own-sender">
       {{ username }}
     </span>
-    <span class="timestamp" [ngClass]="{'is-own-timestamp':isOwnMessage}">
+    <span class="is-own-timestamp">
       {{ timeStamp }}
     </span>
   </div>
-  <div class="message-content" [ngClass]="{'is-own-message':isOwnMessage}">
+  <div class="is-own-message">
     {{ message }}
-    <div *ngIf="systemMessage" class="system">
+    <div *ngIf="versionMessage" class="system">
       --
       <a routerLink="/patch-notes" class="system">Patch Notes</a>
       --
     </div>
+  </div>
+</div>
+<div *ngIf="!isOwnMessage" class="message-container">
+  <div class="message-content" [ngClass]="{'system-bot-msg':systemMessage}">
+    {{ message }}
+    <div *ngIf="versionMessage" class="system">
+      --
+      <a routerLink="/patch-notes" class="system">Patch Notes</a>
+      --
+    </div>
+  </div>
+  <div class="message-data">
+    <span class="sender"  [ngClass]="{'system-bot-name':systemMessage}">
+      {{ username }}
+    </span>
+    <span class="timestamp"  [ngClass]="{'system-bot-time':systemMessage}">
+      {{ timeStamp }}
+    </span>
   </div>
 </div>
