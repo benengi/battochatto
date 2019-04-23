@@ -58,6 +58,18 @@ export class ChatService implements OnInit {
     });
   }
 
+  public sendFeedback(message: string, timeSent: string) {
+    const email = this.user.email;
+    const username = this.afAuth.auth.currentUser.displayName;
+
+    this.db.database.ref('/feedback').push({
+      timeSent,
+      email,
+      message,
+      username
+    });
+  }
+
   public clearChat(timeSent) {
     this.db.database.ref('/chats').set({
       '-0system': {
@@ -68,13 +80,41 @@ export class ChatService implements OnInit {
     }});
   }
 
-  public cbotChat(message: number, timeSent: string) {
+  public clearFeedback(timeSent) {
+    this.db.database.ref('/feedback').set({
+      '-0system': {
+      timeSent,
+      email: 'battobot@bchat.com',
+      message: 'Feedback log has been cleared.',
+      username: 'Batto Bot'
+    }});
+  }
+
+  public cbotChat(message: number, dir: any, timeSent: string) {
     let response: string;
     const email = this.user.email;
     const username = this.afAuth.auth.currentUser.displayName;
 
-    if (message === 1) {
-      response = 'Hello, ' + username;
+    switch (message) {
+      case 1:
+      if (dir < 12 && dir >= 0) {
+        response = 'Good morning, ' + username;
+      } else if (dir >= 12 && dir <= 18) {
+        response = 'Good afternoon, ' + username;
+      } else if (dir > 18 && dir <= 23) {
+        response = 'Good evening, ' + username;
+      } else {
+        response = 'Hello, ' + username;
+      }
+      break;
+      case 2:
+      response = 'Sum: ' + dir + '';
+      break;
+      case 3:
+      response = 'Thank you for your feedback!';
+      break;
+      default:
+      response = 'Chatto Bot error';
     }
     this.db.database.ref('/chats').push({
       timeSent,
