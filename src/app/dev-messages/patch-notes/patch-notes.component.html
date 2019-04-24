@@ -9,14 +9,23 @@
       logout errors
       unsubscribe/multiple chats
       PMs
+      images/files
     -->
+    <div class="patch-divider">
+      <h2 class="patch-header">
+        Patch 6 - Version 0.9.4 - 04/24/2019
+      </h2>
+      <ul class="patch-list">
+        <li>---</li>
+      </ul>
+    </div>
     <div class="patch-divider">
       <h2 class="patch-header">
         Patch 5 - Version 0.9.3 - 04/24/2019
       </h2>
       <ul class="patch-list">
         <li>No longer able to reach login or signup pages *by clicking* while logged in</li>
-        <li>Patch notes are now reachable from the login screen and by clicking the version number in the navbar</li>
+        <li>Patch notes are now reachable from a new button on the login screen and by clicking the version number in the navbar</li>
         <li>Patch notes styling updated</li>
         <li>Added a very primitive form of "reacting" to messages -- click any message to add a small heart in the message data section</li>
       </ul>
@@ -27,7 +36,7 @@
       </h2>
       <ul class="patch-list">
         <li>Chat bubbles are now located on either side of the feed instead of only left</li>
-        <li>cbot update -- using `!cb feedback &lt;your-message&gt;` now sends developer feedback!</li>
+        <li>cbot update -- using `!cb feedback &lt;your-message&gt;` now sends <span (click)="secret()">developer</span> feedback!</li>
         <li>More bbot commands implemented</li>
         <li>Pig mode fixed! The big pig returns!</li>
       </ul>
