@@ -7,6 +7,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
   providedIn: 'root'
 })
 export class StorageService implements OnInit {
+  glowy = true;
 
   constructor(
     private db: AngularFireDatabase
@@ -19,5 +20,13 @@ export class StorageService implements OnInit {
     console.log('reached');
     const storageRef = 'ugh';
     console.log(storageRef);
+  }
+
+  public getGlowBool(): boolean {
+    return this.glowy;
+  }
+
+  public toggleHeaderGlow(headerGlow: boolean) {
+    this.glowy = headerGlow;
   }
 }

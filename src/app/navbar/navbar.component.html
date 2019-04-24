@@ -1,6 +1,6 @@
 <div class="nav-bar">
   <div id="logo"></div>
-  <div id="heading"><a routerLink="/">Batto Chatto</a></div>
+  <div id="heading"><a [ngClass]="{'glow':isGlowing}" routerLink="/">Batto Chatto</a></div>
   <div class="tiny-version-number"><a class="btn" routerLink="/patch_notes">{{ versionNumber }}</a></div>
   <div class="links">
     <span class="nav-btn" *ngIf="!(user|async)?.uid">

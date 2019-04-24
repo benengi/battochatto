@@ -6,6 +6,7 @@ import {
   AfterViewChecked
 } from '@angular/core';
 import { ChatService } from '../services/chat.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-chatroom',
@@ -20,8 +21,12 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   nightMode = false;
   settings = false;
   pigMessage = 'pig mode enabled';
+  headerGlow = true;
 
-  constructor(private chatService: ChatService) {
+  constructor(
+    private chatService: ChatService,
+    private storeServe: StorageService
+    ) {
     this.welcomeMessage = chatService.welcome();
   }
 
@@ -44,6 +49,11 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   toggleNightMode() {
     this.nightMode = !this.nightMode;
     this.chatService.nightMode = this.nightMode;
+  }
+
+  toggleHeaderGlow() {
+    this.headerGlow = !this.headerGlow;
+    this.storeServe.toggleHeaderGlow(this.headerGlow);
   }
 
   toggleSettings() {
