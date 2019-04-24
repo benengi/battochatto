@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { ChatMessage } from "../models/chat-message.model";
-import { AuthService } from "../services/auth.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { ChatMessage } from '../models/chat-message.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: "app-message",
-  templateUrl: "./message.component.html",
-  styleUrls: ["./message.component.css"]
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
   @Input() chatMessage: ChatMessage;
@@ -33,18 +33,18 @@ export class MessageComponent implements OnInit {
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
     this.username = chatMessage.username;
-    this.systemMessage = chatMessage.username === "Chatto Bot";
+    this.systemMessage = chatMessage.username === 'Chatto Bot';
     this.versionMessage =
-      chatMessage.username === "Batto Bot" &&
-      !!chatMessage.message.match("version");
+      chatMessage.username === 'Batto Bot' &&
+      !!chatMessage.message.match('version');
   }
 
   addReaction() {
     this.react = !this.react;
     if (this.react) {
-      this.reaction = "♥";
+      this.reaction = '♥';
     } else {
-      this.reaction = "";
+      this.reaction = '';
     }
   }
 }
