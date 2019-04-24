@@ -22,6 +22,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   settings = false;
   pigMessage = 'pig mode enabled';
   headerGlow = true;
+  profanity = false;
 
   constructor(
     private chatService: ChatService,

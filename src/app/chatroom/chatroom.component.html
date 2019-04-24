@@ -19,14 +19,14 @@
     Settings
   </span>
   <span *ngIf="settings" class="secret-bar btn" [ngClass]="{'pig-mode':pigMode}">
-    <span class="setting" (click)="toggleNightMode()">
+    <span class="setting" [ngClass]="{'night-setting':nightMode}" (click)="toggleNightMode()">
       Night Mode
     </span>
-    <span class="setting" (click)="toggleHeaderGlow()">
-      Toggle Header Glow
+    <span class="setting" [ngClass]="{'glow-setting':headerGlow}" (click)="toggleHeaderGlow()">
+      Header Glow
     </span>
-    <span class="setting">
-      -Unused Setting-
+    <span class="setting" [ngClass]="{'profanity-setting':profanity}" (click)="toggleProfanityFilter()">
+      Profanity Filter
     </span>
     <span *ngIf="pigSecret" class="setting" (click)="togglePigMode()">
       PL Mode
