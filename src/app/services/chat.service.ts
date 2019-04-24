@@ -129,7 +129,7 @@ export class ChatService implements OnInit {
   }
 
   public updateNotification(timeSent: string) {
-    const message: string = 'An update has been pushed! ' + this.versionNumber + ' is now available!';
+    const message: string = 'An update has been pushed! Version ' + this.versionNumber + ' is now available!';
     this.db.database.ref('/chats').push({
       timeSent,
       email: 'battobot@bchat.com',

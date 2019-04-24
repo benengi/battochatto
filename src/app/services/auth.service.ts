@@ -12,13 +12,15 @@ export class AuthService {
   private user: Observable<firebase.User>;
   private authState: any;
 
-  constructor(private afAuth: AngularFireAuth, private db: AngularFireDatabase, private router: Router) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private db: AngularFireDatabase,
+    private router: Router
+  ) {
     this.user = afAuth.authState;
   }
 
   get currentUserId(): string {
-    console.log(this.authState);
-
     return this.authState !== null ? this.authState.user.uid : '';
   }
 
@@ -31,18 +33,26 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.afAuth.auth.signInWithEmailAndPassword(email, password)
-    .then(user => {
-      this.authState = user;
-    });
+    return this.afAuth.auth
+      .signInWithEmailAndPassword(email, password)
+      .then(user => {
+        this.authState = user;
+      });
   }
 
-  logout() {
+  logout(): void {
     const uid = this.authenticate().uid;
     const status = 'offline';
     this.setStatus(uid, status);
-    this.afAuth.auth.signOut()
-    .then(() => this.router.navigate(['/']));
+    this.afAuth.auth
+      .signOut()
+      .then(() => {
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        console.log(err);
+        console.log('Signout error');
+      });
   }
 
   setStatus(uid: string, status: string) {
@@ -54,13 +64,14 @@ export class AuthService {
   }
 
   async signUpFire(email: string, password: string, displayName: string) {
-    return await this.afAuth.auth.createUserWithEmailAndPassword(email, password)
-    .then(user => {
-      user.user.updateProfile({ displayName });
-      this.authState = user;
-      const status = 'online';
-      this.setUserData(email, displayName, status);
-    });
+    return await this.afAuth.auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        user.user.updateProfile({ displayName });
+        this.authState = user;
+        const status = 'online';
+        this.setUserData(email, displayName, status);
+      });
   }
 
   setUserData(email: string, displayName: string, status: string) {

@@ -9,6 +9,7 @@
 
 .login-card {
   display: block;
+  font-family: 'Raleway', sans-serif;
   border: 1px solid #000;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, 0.85);
@@ -35,6 +36,7 @@
 }
 
 .btn {
+  font-family: 'Raleway', sans-serif;
   height: 54px;
   width: 60%;
   margin: auto;
@@ -84,4 +86,10 @@ input.ng-invalid.ng-touched {
   margin: 5vh auto;
   font-size: 1.8rem;
   width: 40vw;
+}
+
+.footer {
+  margin: auto;
+  text-align: center;
+  width: 30vw;
 }
