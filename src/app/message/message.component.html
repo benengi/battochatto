@@ -1,10 +1,13 @@
-<div *ngIf="isOwnMessage" class="is-own-message-container">
+<div *ngIf="isOwnMessage" class="is-own-message-container" (click)="addReaction()">
   <div class="is-own-message-data">
     <span class="is-own-sender">
       {{ username }}
     </span>
     <span class="is-own-timestamp">
       {{ timeStamp }}
+    </span>
+    <span class="reactions">
+      {{ reaction }}
     </span>
   </div>
   <div class="is-own-message">
@@ -16,7 +19,8 @@
     </div>
   </div>
 </div>
-<div *ngIf="!isOwnMessage" class="message-container">
+
+<div *ngIf="!isOwnMessage" class="message-container" (click)="addReaction()">
   <div class="message-content" [ngClass]="{'system-bot-msg':systemMessage}">
     {{ message }}
     <div *ngIf="versionMessage" class="system">
@@ -26,11 +30,14 @@
     </div>
   </div>
   <div class="message-data">
-    <span class="sender"  [ngClass]="{'system-bot-name':systemMessage}">
+    <span class="sender" [ngClass]="{'system-bot-name':systemMessage}">
       {{ username }}
     </span>
-    <span class="timestamp"  [ngClass]="{'system-bot-time':systemMessage}">
+    <span class="timestamp" [ngClass]="{'system-bot-time':systemMessage}">
       {{ timeStamp }}
+    </span>
+    <span class="reactions">
+      {{ reaction }}
     </span>
   </div>
 </div>
