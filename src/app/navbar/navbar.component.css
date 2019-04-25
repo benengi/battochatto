@@ -77,10 +77,10 @@
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #911c8b, 0 0 20px #911c8b, 0 0 30px #911c8b, 0 0 40px #911c8b, 0 0 50px #911c8b;
+    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #d360cd, 0 0 20px #d360cd, 0 0 30px #d360cd, 0 0 40px #d360cd, 0 0 50px #d360cd;
   }
 
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px #c985a7, 0 0 40px #c985a7, 0 0 50px #c985a7, 0 0 60px #c985a7, 0 0 70px #c985a7, 0 0 80px #c985a7;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.137), 0 0 30px #c985a741, 0 0 40px #c985a741, 0 0 50px #c985a741, 0 0 60px #c985a741, 0 0 70px #c985a741, 0 0 80px #c985a741;
   }
 }
