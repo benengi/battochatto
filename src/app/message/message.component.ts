@@ -43,10 +43,10 @@ export class MessageComponent implements OnInit, DoCheck {
     this.timeStamp = chatMessage.timeSent;
     this.userEmail = chatMessage.email;
     this.username = chatMessage.username;
-    this.systemMessage = chatMessage.username === 'Chatto Bot';
+    this.systemMessage = !!chatMessage.username.match('[CB]h?atto Bot');
     this.versionMessage =
       chatMessage.username === 'Batto Bot' &&
-      !!chatMessage.message.match('version');
+      !!chatMessage.message.match('[Vv]ersion');
   }
 
   ngDoCheck() {

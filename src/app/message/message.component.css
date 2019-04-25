@@ -7,7 +7,7 @@
   min-width: 10vw;
   border-radius: 5px;
   margin-left: 1vw;
-  background-color: rgb(238, 238, 238);
+  background-color: rgba(238, 238, 238, 0.397);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
@@ -35,7 +35,7 @@
   height: auto;
   color: #222;
   flex: 9;
-  background-color: aliceblue;
+  background-color: rgba(240, 248, 255, 0.5);
   font-size: 1.3em;
   padding: 2vh;
   border-top-left-radius: 5px;
@@ -55,6 +55,7 @@
 .system-bot-msg {
   font-family: 'Press Start 2P', sans-serif;
   font-size: 0.8em;
+  line-height: 4vh;
 }
 
 .system-bot-name {
@@ -73,16 +74,16 @@
 .is-own-message-container {
   display: flex;
   height: auto;
-  width: 70%;
-  min-width: 400px;
+  width: fit-content;
+  max-width: 70%;
+  min-width: 10%;
   border-radius: 5px;
-  align-items: stretch;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: #454381;
+  background-color: #45438152;
 }
 
 .is-own-message-data {
-  flex: 1;
+  min-width: 10%;
   padding: 10px;
   font-size: 0.7em;
 }
@@ -101,12 +102,11 @@
 .is-own-message {
   max-height: 23vh;
   overflow: auto;
-  background-color: #e3f2fd;
+  background-color: #e3f2fd48;
   color: #1d252b;
   height: auto;
-  flex: 9;
   font-size: 1.1em;
-  padding: 10px;
+  padding: 10px 5px 0px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
