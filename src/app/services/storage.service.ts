@@ -8,6 +8,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 })
 export class StorageService implements OnInit {
   glowy = true;
+  profanity = true;
 
   constructor(
     private db: AngularFireDatabase
@@ -28,5 +29,9 @@ export class StorageService implements OnInit {
 
   public toggleHeaderGlow(headerGlow: boolean) {
     this.glowy = headerGlow;
+  }
+
+  public toggleProfanity() {
+    this.profanity = !this.profanity;
   }
 }

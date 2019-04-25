@@ -31,6 +31,8 @@
 }
 
 .message-content {
+  max-height: 23vh;
+  overflow: auto;
   height: auto;
   color: #222;
   flex: 9;
@@ -98,6 +100,8 @@
 }
 
 .is-own-message {
+  max-height: 23vh;
+  overflow: auto;
   background-color: #e3f2fd;
   color: #1d252b;
   height: auto;

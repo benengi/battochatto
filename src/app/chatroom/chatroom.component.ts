@@ -3,7 +3,8 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
-  AfterViewChecked
+  AfterViewChecked,
+  DoCheck
 } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { StorageService } from '../services/storage.service';
@@ -13,7 +14,7 @@ import { StorageService } from '../services/storage.service';
   templateUrl: './chatroom.component.html',
   styleUrls: ['./chatroom.component.css']
 })
-export class ChatroomComponent implements OnInit, AfterViewChecked {
+export class ChatroomComponent implements OnInit, AfterViewChecked, DoCheck {
   @ViewChild('scroller') private feedContainer: ElementRef;
   welcomeMessage: string;
   pigMode = false;
@@ -22,7 +23,7 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   settings = false;
   pigMessage = 'pig mode enabled';
   headerGlow = true;
-  profanity = false;
+  profanity: boolean;
 
   constructor(
     private chatService: ChatService,
@@ -32,6 +33,11 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
+    this.profanity = this.storeServe.profanity;
+  }
+
+  ngDoCheck() {
+    this.profanity = this.storeServe.profanity;
   }
 
   ngAfterViewChecked() {
@@ -55,6 +61,10 @@ export class ChatroomComponent implements OnInit, AfterViewChecked {
   toggleHeaderGlow() {
     this.headerGlow = !this.headerGlow;
     this.storeServe.toggleHeaderGlow(this.headerGlow);
+  }
+
+  toggleProfanityFilter() {
+    this.storeServe.toggleProfanity();
   }
 
   toggleSettings() {

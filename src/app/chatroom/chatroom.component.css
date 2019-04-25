@@ -78,3 +78,16 @@
 .night-mode {
   background: linear-gradient(rgba(100, 50, 133, 0.397), rgba(87, 49, 87, 0.308)), url('../../assets/img/dark-scary-lake-at-night-background.png');
 }
+
+.glow-setting {
+  text-shadow: 0px 0px 8px #fff;
+}
+
+.profanity-setting {
+  font-family: 'Petit Formal Script', 'Lucida Sans', Verdana, sans-serif;
+}
+
+.night-setting {
+  color: #332845;
+  text-shadow: 0px 0px 5px white;
+}
