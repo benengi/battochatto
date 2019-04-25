@@ -171,4 +171,15 @@ export class ChatService implements OnInit {
   public checkSecretPig() {
     return this.secretPig;
   }
+
+  public chattoBotSpamWarning(timeSent: string) {
+    const username = this.afAuth.auth.currentUser.displayName;
+    const message = username + ', please wait momentarily before sending your next message';
+    this.db.database.ref('/chats').push({
+      timeSent,
+      email: 'battobot@bchat.com',
+      message,
+      username: 'Batto Bot'
+    });
+  }
 }

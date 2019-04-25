@@ -8,6 +8,8 @@ import { ChatService } from '../services/chat.service';
 })
 export class ChatFormComponent implements OnInit {
   message: string;
+  recentMessageCount = 0;
+  spamGuard = false;
 
   constructor(private chatService: ChatService) {}
 
@@ -49,8 +51,36 @@ export class ChatFormComponent implements OnInit {
   send() {
     const timeStamp = this.getTimeStamp();
     const message = this.message;
-    let dir: any; // Directive argument for chat bot
 
+    if (message === undefined || message.match('^ +')) {
+      return;
+    }
+
+    this.recentMessageCount++;
+    setTimeout(() => {
+      this.recentMessageCount--;
+    }, 3000);
+
+    if (this.spamGuard) {
+      alert('Please wait before posting again');
+      return;
+    } else if (this.recentMessageCount === 4) {
+      this.spamGuard = true;
+      this.chatService.chattoBotSpamWarning(timeStamp);
+      setTimeout(() => {
+        this.spamGuard = false;
+      }, 30000);
+    } else if (this.recentMessageCount > 4) {
+      return;
+    } else if (this.spamGuard) {
+      return;
+    } else {
+      this.sendMessage(timeStamp, message);
+    }
+  }
+
+  sendMessage(timeStamp: string, message: string) {
+    let dir: any; // Directive argument for chat bot
     if (!!message.match('^!bbot util patch$')) {
       this.chatService.updateNotification(timeStamp);
       this.message = 'Success!';
@@ -68,10 +98,13 @@ export class ChatFormComponent implements OnInit {
       this.message = 'Pig mode unlocked!';
       return;
     } else if (!!message.match('^!cb')) {
-      if (!!message.match('^!cb [Hh][ae]llo') || !!message.match('^!cb [Hh][ie]y?')) {
+      if (
+        !!message.match('^!cb [Hh][ae]llo') ||
+        !!message.match('^!cb [Hh][ie]y?')
+      ) {
         dir = this.getTimeOfDay();
         this.chatService.sendMessage(message, timeStamp);
-        this.chatService.cbotChat(1,  dir, timeStamp);
+        this.chatService.cbotChat(1, dir, timeStamp);
         this.message = '';
         return;
       } else if (!!message.match('^!cb add')) {

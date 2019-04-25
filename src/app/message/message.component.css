@@ -12,7 +12,6 @@
 }
 
 .message-data {
-  /* float: right; */
   min-width: 10%;
   font-size: 0.8em;
   flex: 1;
