@@ -12,6 +12,9 @@
   </div>
   <div class="is-own-message">
     {{ message }}
+    <div class="iterator" *ngFor="let link of messageLink">
+      <a href="{{ link }}" class="link" target="_blank">{{ link }}</a>
+    </div>
     <div *ngIf="versionMessage" class="system">
       --
       <a routerLink="/patch-notes" class="system">Patch Notes</a>
@@ -23,6 +26,9 @@
 <div *ngIf="!isOwnMessage" class="message-container" (click)="addReaction()">
   <div class="message-content" [ngClass]="{'system-bot-msg':systemMessage}">
     {{ message }}
+    <div class="iterator" *ngFor="let link of messageLink">
+      <a href="{{ link }}" class="link" target="_blank">{{ link }}</a>
+    </div>
     <div *ngIf="versionMessage" class="system">
       --
       <a routerLink="/patch-notes" class="system">Patch Notes</a>

@@ -38,8 +38,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   validate() {
-    console.log(':P');
-
     const validEmail = !!this.email.match('[^@]+@[^.]+..+');
     const validPassword = !!this.password.match('.{6,}');
     let valid = false;

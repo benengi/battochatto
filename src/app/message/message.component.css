@@ -85,8 +85,13 @@
 
   .is-own-message-data {
     min-width: 10%;
-    padding: 10px;
+    padding: 5px;
     font-size: 0.7em;
+    width: 5vw;
+  }
+
+  .link {
+    font-variant: small-caps;
   }
 
   .is-own-sender {
