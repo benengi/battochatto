@@ -9,3 +9,15 @@
     margin: 1.3vh 0;
   }
 }
+
+@media (max-width: 1199px) {
+  .feed {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .message {
+    flex-direction: column;
+    margin: 1.3vh 0;
+  }
+}

@@ -12,7 +12,7 @@
     <span class="nav-btn" *ngIf="(user|async)?.uid">
       <span id="username">Hello, {{ displayName }}</span>
     </span>
-    <span class="nav-btn" *ngIf="(user|async)?.uid">
+    <span class="nav-btn" id="chatto" *ngIf="(user|async)?.uid">
       <a routerLink="/chatto">Chat!</a>
     </span>
     <span class="nav-btn" *ngIf="(user|async)?.uid">

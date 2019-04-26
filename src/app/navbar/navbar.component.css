@@ -98,24 +98,22 @@
 
   #logo {
     display: inline-block;
-    background: url('../../assets/img/bat-face-512.png') no-repeat;
+    background: url('../../assets/img/bat-face-512.png') center center no-repeat;
     background-size: cover;
-    margin: 12px 10px 12px 32px;
-    width: 60px;
-    height: 60px;
-    min-width: 60px;
+    margin: 0px;
+    width: 10vw;
+    height: 10vh;
   }
 
-  /* #heading {
-    padding: 24px 0px 8px 10px;
-    height: 60px;
+  #heading {
+    padding: 0px;
+    height: 10vh;
+    width: 30vw;
     font-size: 1.8em;
     font-weight: bold;
   }
 
   .links {
-    padding-top: 32px;
-    padding-right: 30px;
     white-space: nowrap;
     display: block;
   }
@@ -127,35 +125,37 @@
 
   .links a {
     color: #555;
-    padding: 40px 60px;
+    height: 10vh;
+    max-width: 20vw;
+    margin: 0px 0px;
     text-decoration: none;
     transition: ease-in 0.2s;
     overflow: hidden;
     background-color: rgba(243, 208, 241, 0.158);
-    cursor: pointer;
-  }
-
-  .links a:hover {
-    color: #1E88E5;
-    transition: ease-in 0.2s;
+    padding: 0px 5vw;
   }
 
   #username {
-    padding-right: 16px;
     font-weight: bold;
   }
 
+  #chatto {
+    display: none;
+  }
+
   .nav-btn {
-    padding: 20px 20px;
-    margin: 0px 50px;
-    font-size: 1.2rem;
+    height: 10vh;
+    width: 20vw;
+    padding: 40px 0px;
+    margin: 0px 0px;
+    font-size: 1.5rem;
+    line-height: 10vh;
   }
 
   .tiny-version-number {
     color: #1E88E5;
     font-size: .8em;
     text-align: left;
-    flex: 5;
   }
 
 
@@ -173,5 +173,5 @@
     to {
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.137), 0 0 30px #c985a741, 0 0 40px #c985a741, 0 0 50px #c985a741, 0 0 60px #c985a741, 0 0 70px #c985a741, 0 0 80px #c985a741;
     }
-  } */
+  }
 }

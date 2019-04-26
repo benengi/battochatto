@@ -112,3 +112,118 @@
     border-bottom-right-radius: 5px;
   }
 }
+
+@media (max-width:1199px) {
+  .message-container {
+    float: right;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    max-width: 95vw;
+    min-width: 10vw;
+    border-radius: 5px;
+    margin: 0 2vw;
+    background-color: rgba(238, 238, 238, 0.397);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+  .message-data {
+    min-width: 10%;
+    max-width: 20vw;
+    font-size: 0.8em;
+    padding: 10px;
+  }
+
+  .sender {
+    display: block;
+    color: rgb(36, 19, 56);
+    font-weight: bold;
+  }
+
+  .timestamp {
+    color: #555;
+    font-style: italic;
+  }
+
+  .message-content {
+    max-height: 23vh;
+    overflow: auto;
+    height: auto;
+    color: #222;
+    flex: 9;
+    background-color: rgba(240, 248, 255, 0.5);
+    font-size: 1.3em;
+    padding: 2vh;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  .system {
+    color: #454381;
+    text-decoration: none;
+    font-variant: small-caps;
+  }
+
+  .system-bot-msg {
+    font-family: 'Press Start 2P', sans-serif;
+    font-size: 0.8em;
+    line-height: 3vh;
+  }
+
+  .system-bot-name {
+    color: #7d7aec;
+    font-variant: small-caps;
+  }
+
+  .system-bot-time {
+    color: #111111;
+  }
+
+  .system:hover {
+    color: black;
+  }
+
+  .is-own-message-container {
+    display: flex;
+    height: auto;
+    width: fit-content;
+    max-width: 95vw;
+    min-width: 10vw;
+    border-radius: 5px;
+    margin: 0px 2vw;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.26), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: #45438152;
+  }
+
+  .is-own-message-data {
+    min-width: 10%;
+    max-width: 15vw;
+    padding: 5px;
+    font-size: 0.6em;
+  }
+
+  .is-own-sender {
+    color: #9bdfff;
+    display: block;
+    font-weight: bold;
+    font-kerning: auto;
+    font-size: 1em;
+  }
+
+  .is-own-timestamp {
+    color: #d5f2ff;
+    font-style: italic;
+  }
+
+  .is-own-message {
+    max-height: 23vh;
+    overflow: auto;
+    background-color: #e3f2fd48;
+    color: #1d252b;
+    height: auto;
+    font-size: 1.1em;
+    padding: 10px 5px 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}

@@ -31,3 +31,36 @@
     background-color: #444;
   }
 }
+
+@media (max-width: 1199px) {
+  .chat-input {
+    font-size: 1.3em;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #eee;
+    color: black;
+    transition: 0.1s ease-out;
+    padding-left: 10px;
+    width: 80vw;
+    margin: 0;
+  }
+
+  .chat-input:focus {
+    background-color: #e4f1fe;
+    color: #222;
+    transition: 0.2s ease-in;
+  }
+
+  .chat-button {
+    flex: 1;
+    padding: auto;
+    width: 16vw;
+    height: 5vh;
+    margin: 0;
+    font-size: 0.9em;
+    font-family: 'Droid Sans', sans-serif;
+    background-color: #2a2845;
+    color: white;
+    transition: 0.2s ease-out;
+    min-width: 50px;
+  }
+}

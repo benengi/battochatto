@@ -15,7 +15,7 @@
       {{ welcomeMessage }}
     </a>
   </span>
-  <span class="welcome-message btn" (click)="toggleSettings()">
+  <span class="welcome-message btn" id="set-btn" (click)="toggleSettings()">
     Settings
   </span>
   <span *ngIf="settings" class="secret-bar btn" [ngClass]="{'pig-mode':pigMode}">
