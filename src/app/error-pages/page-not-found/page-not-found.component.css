@@ -1,20 +1,22 @@
-div {
-  font-family: 'Raleway', sans-serif;
-  font-variant: small-caps;
-  margin: 50px;
-  text-align: center;
-  color: rgb(82, 4, 4);
-  font-size: 1.5em;
-}
+@media (min-width: 1200px) {
+  div {
+    font-family: 'Raleway', sans-serif;
+    font-variant: small-caps;
+    margin: 50px;
+    text-align: center;
+    color: rgb(82, 4, 4);
+    font-size: 1.5em;
+  }
 
-.fun-pic {
+  .fun-pic {
     margin: auto;
-}
+  }
 
-.return {
+  .return {
     background-color: aliceblue;
     border-radius: 4px;
     font-family: 'Raleway', sans-serif;
     font-size: 1.2em;
     padding: 1vh 1vw;
+  }
 }

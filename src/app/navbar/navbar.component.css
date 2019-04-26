@@ -1,86 +1,177 @@
-.nav-bar {
-  height: 10vh;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  background-color: rgb(255, 243, 255);
-}
-
-#logo {
-  display: inline-block;
-  background: url('../../assets/img/bat-face-512.png') no-repeat;
-  background-size: cover;
-  margin: 12px 10px 12px 32px;
-  width: 60px;
-  height: 60px;
-  min-width: 60px;
-}
-
-#heading {
-  padding: 24px 0px 8px 10px;
-  height: 60px;
-  font-size: 1.8em;
-  font-weight: bold;
-}
-
-.links {
-  padding-top: 32px;
-  padding-right: 30px;
-  white-space: nowrap;
-  display: block;
-}
-
-#heading>a {
-  text-decoration: none;
-  color: black;
-}
-
-.links a {
-  color: #555;
-  padding: 40px 60px;
-  text-decoration: none;
-  transition: ease-in 0.2s;
-  overflow: hidden;
-  background-color: rgba(243, 208, 241, 0.158);
-  cursor: pointer;
-}
-
-.links a:hover {
-  color: #1E88E5;
-  transition: ease-in 0.2s;
-}
-
-#username {
-  padding-right: 16px;
-  font-weight: bold;
-}
-
-.nav-btn {
-  padding: 20px 20px;
-  margin: 0px 50px;
-  font-size: 1.2rem;
-}
-
-.tiny-version-number {
-  color: #1E88E5;
-  font-size: .8em;
-  text-align: left;
-  flex: 5;
-}
-
-
-.glow {
-  -webkit-animation: glow 1s ease-in-out infinite alternate;
-  -moz-animation: glow 1s ease-in-out infinite alternate;
-  animation: glow 5s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #d360cd, 0 0 20px #d360cd, 0 0 30px #d360cd, 0 0 40px #d360cd, 0 0 50px #d360cd;
+@media (min-width: 1200px) {
+  .nav-bar {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 243, 255);
   }
 
-  to {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.137), 0 0 30px #c985a741, 0 0 40px #c985a741, 0 0 50px #c985a741, 0 0 60px #c985a741, 0 0 70px #c985a741, 0 0 80px #c985a741;
+  #logo {
+    display: inline-block;
+    background: url('../../assets/img/bat-face-512.png') no-repeat;
+    background-size: cover;
+    margin: 12px 10px 12px 32px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
   }
+
+  #heading {
+    padding: 24px 0px 8px 10px;
+    height: 60px;
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+
+  .links {
+    padding-top: 32px;
+    padding-right: 30px;
+    white-space: nowrap;
+    display: block;
+  }
+
+  #heading>a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .links a {
+    color: #555;
+    padding: 40px 60px;
+    text-decoration: none;
+    transition: ease-in 0.2s;
+    overflow: hidden;
+    background-color: rgba(243, 208, 241, 0.158);
+    cursor: pointer;
+  }
+
+  .links a:hover {
+    color: #1E88E5;
+    transition: ease-in 0.2s;
+  }
+
+  #username {
+    padding-right: 16px;
+    font-weight: bold;
+  }
+
+  .nav-btn {
+    padding: 20px 20px;
+    margin: 0px 50px;
+    font-size: 1.2rem;
+  }
+
+  .tiny-version-number {
+    color: #1E88E5;
+    font-size: .8em;
+    text-align: left;
+    flex: 5;
+  }
+
+
+  .glow {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #d360cd, 0 0 20px #d360cd, 0 0 30px #d360cd, 0 0 40px #d360cd, 0 0 50px #d360cd;
+    }
+
+    to {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.137), 0 0 30px #c985a741, 0 0 40px #c985a741, 0 0 50px #c985a741, 0 0 60px #c985a741, 0 0 70px #c985a741, 0 0 80px #c985a741;
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .nav-bar {
+    height: 10vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(255, 243, 255);
+  }
+
+  #logo {
+    display: inline-block;
+    background: url('../../assets/img/bat-face-512.png') no-repeat;
+    background-size: cover;
+    margin: 12px 10px 12px 32px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+  }
+
+  /* #heading {
+    padding: 24px 0px 8px 10px;
+    height: 60px;
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+
+  .links {
+    padding-top: 32px;
+    padding-right: 30px;
+    white-space: nowrap;
+    display: block;
+  }
+
+  #heading>a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .links a {
+    color: #555;
+    padding: 40px 60px;
+    text-decoration: none;
+    transition: ease-in 0.2s;
+    overflow: hidden;
+    background-color: rgba(243, 208, 241, 0.158);
+    cursor: pointer;
+  }
+
+  .links a:hover {
+    color: #1E88E5;
+    transition: ease-in 0.2s;
+  }
+
+  #username {
+    padding-right: 16px;
+    font-weight: bold;
+  }
+
+  .nav-btn {
+    padding: 20px 20px;
+    margin: 0px 50px;
+    font-size: 1.2rem;
+  }
+
+  .tiny-version-number {
+    color: #1E88E5;
+    font-size: .8em;
+    text-align: left;
+    flex: 5;
+  }
+
+
+  .glow {
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 5s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 0px #fff, 0 0 5px #fff, 0 0 10px #d360cd, 0 0 20px #d360cd, 0 0 30px #d360cd, 0 0 40px #d360cd, 0 0 50px #d360cd;
+    }
+
+    to {
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.137), 0 0 30px #c985a741, 0 0 40px #c985a741, 0 0 50px #c985a741, 0 0 60px #c985a741, 0 0 70px #c985a741, 0 0 80px #c985a741;
+    }
+  } */
 }

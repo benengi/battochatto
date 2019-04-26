@@ -1,30 +1,32 @@
-div {
-  font-family: 'Raleway', sans-serif;
-  font-variant: small-caps;
-  margin: 50px;
-}
+@media (min-width: 1200px) {
+  div {
+    font-family: 'Raleway', sans-serif;
+    font-variant: small-caps;
+    margin: 50px;
+  }
 
-.patch-divider {
+  .patch-divider {
     margin: 5vh 0;
-}
+  }
 
-.patch-list {
-  color: rgb(82, 4, 4);
-  font-size: 1.5em;
-  font-variant: normal;
-  margin: 20px;
-}
+  .patch-list {
+    color: rgb(82, 4, 4);
+    font-size: 1.5em;
+    font-variant: normal;
+    margin: 20px;
+  }
 
-.footer {
-  text-align: center;
-}
+  .footer {
+    text-align: center;
+  }
 
-li {
-  margin: 0;
-  padding: 36px 0 36px 84px;
-  list-style: none;
-  background-image: url("../../../assets/img/creepy-bat-icon.png"), radial-gradient(circle, rgba(121, 29, 108, 0.178) 10%, rgba(0, 0, 0, 0) 44%);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 40px;
+  li {
+    margin: 0;
+    padding: 36px 0 36px 84px;
+    list-style: none;
+    background-image: url("../../../assets/img/creepy-bat-icon.png"), radial-gradient(circle, rgba(121, 29, 108, 0.178) 10%, rgba(0, 0, 0, 0) 44%);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 40px;
+  }
 }

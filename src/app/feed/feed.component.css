@@ -1,9 +1,11 @@
-.feed {
+@media (min-width: 1200px) {
+  .feed {
     display: flex;
     flex-direction: column;
-}
+  }
 
-.message {
+  .message {
     flex-direction: column;
     margin: 1.3vh 0;
+  }
 }

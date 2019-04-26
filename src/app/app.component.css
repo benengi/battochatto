@@ -1,16 +1,24 @@
-.chatroom {
+@media (min-width: 1200px) {
+  .chatroom {
     height: 100%;
     display: flex;
     flex-direction: column;
-}
+  }
 
-.chat-header-wrapper {
+  .chat-header-wrapper {
     height: 90px;
     color: #222;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.37), 1px 2px 3px rgba(0, 0, 0, 0.54);
     z-index: 2;
+  }
+
+  router-outlet {
+    height: 0;
+  }
 }
 
-router-outlet {
+@media (max-width: 1199px) {
+  router-outlet {
     height: 0;
+  }
 }
