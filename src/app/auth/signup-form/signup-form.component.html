@@ -1,6 +1,6 @@
 <div class="container">
   <div class="signup-card">
-    <form #signupForm="ngForm" (submit)="validate()">
+    <form #signupForm="ngForm">
       <h2 class="heading">Sign Up</h2>
 
       <label for="email" class="label">Email</label>
@@ -15,7 +15,7 @@
       <input type="text" name="displayName" class="form-input" [(ngModel)]="displayName"
         placeholder="Please choose a display name" maxlength="12" required />
 
-      <button [disabled]="!signupForm.form.valid" type="submit" class="btn btn-signup" >
+      <button [disabled]="!signupForm.form.valid" type="submit" (click)="validate()" class="btn btn-signup" >
         Sign Up!
       </button>
     </form>
